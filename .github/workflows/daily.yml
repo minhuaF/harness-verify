@@ -19,9 +19,6 @@ jobs:
         run: pip install anthropic python-dotenv httpx
 
       - name: Run analyzer
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
         run: python run.py
 
       - name: Deploy to gh-pages
