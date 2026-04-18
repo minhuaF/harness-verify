@@ -9,7 +9,7 @@ def run_analyzer():
         [sys.executable, "analyzer.py"],
         capture_output=True,
         text=True,
-        cwd="/Users/fengminhua/code/miwa/harness-verify",
+        cwd=os.path.dirname(os.path.abspath(__file__)),
     )
     if result.returncode != 0 and not result.stdout.strip():
         raise RuntimeError(f"analyzer.py failed:\n{result.stderr}")

@@ -1,7 +1,14 @@
 import sys
 import os
+from anthropic import Anthropic
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+# Validate env vars early; base_url is optional
+Anthropic(
+    api_key=os.getenv("ANTHROPIC_API_KEY"),
+    base_url=os.getenv("ANTHROPIC_BASE_URL") or None,
+)
 
 from renderer import run_analyzer, parse_output, render_html, fallback_topics
 
